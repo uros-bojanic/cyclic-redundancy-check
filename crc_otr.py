@@ -75,7 +75,7 @@ def crc_check(sequence, generator):
 
 
 # Function to add padding to an information sequence
-def crc_padding(sequence, generator):
+def crc_padding(sequence, generator=0b100000100110000010001110110110111):
     """Adds padding (trailing zeros in the binary representation) to the
     given binary number (`sequence`) with length of the padding equal to
     1 less than the length of the generator polynomial (`generator`),
@@ -105,11 +105,12 @@ def crc_padding(sequence, generator):
 
 
 # Function to decode an information sequence
-def crc_decode(sequence, generator):
+def crc_decode(sequence, generator=0b100000100110000010001110110110111):
     """Decodes a binary number (`sequence`) using the provided generator
     polynomial (`generator`), and returns a boolean value indicating
     whether there are errors in the original information sequence or not,
-    based on the result of a cyclic redundancy check.
+    based on the result of a cyclic redundancy check. If generator is not
+    passed as an argument, CRC32 is used by default.
 
     Parameters:
     -----------
@@ -129,6 +130,8 @@ def crc_decode(sequence, generator):
         False
         >>> crc_decode(0b11011011011, 0b10101)
         True
+        >>> crc_decode(0b1101010011110100101111101011011100111001000011010001)
+        True
     """
     # Check if the CRC remainder is equal to 0
     return crc_check(sequence, generator) == 0
@@ -140,6 +143,7 @@ def crc_encode(sequence, generator):
     polynomial (`generator`), and returns the resulting (encoded) message.
     The original binary sequence is expanded (padding is added), and the
     appropriate suffix is added as a result of the cyclic redundancy check.
+    If generator is not passed as an argument, CRC32 is used by default.
 
     Parameters:
     -----------
@@ -159,6 +163,8 @@ def crc_encode(sequence, generator):
         0b11011011011
         >>> crc_encode(0b01100111, 0b11001)
         0b11001110010
+        >>> crc_encode(0b11101010111010100110010101111010110101)
+        0b1110101011101010011001010111101011010111000111000111001000111111010010
     """
     # Add padding for given sequence-generator pair
     sequence = crc_padding(sequence, generator)
