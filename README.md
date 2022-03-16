@@ -140,6 +140,14 @@ python benchmark.py
 
 Results of benchmark are provided as console output, but are also conveniently available in ```benchmark.csv``` file.
 
+| Name       | PolynomialDegree | SequenceLength | ExecutionTime |
+| ---------- | ---------------- | -------------- | ------------- |
+| CRC-1      | 1                | 1              | 0.0           |
+| CRC-1      | 1                | 2              | 0.0           |
+| ...        | ...              | ...            | ...           |
+| CRC-64-ISO | 64               | 16384          | 21.94741      |
+| CRC-64-ISO | 64               | 32768          | 57.79054      |
+
 ### Benchmark analysis
 ```performance.py``` provides a python program to analyze and plot CRC benchmark results. To visualize CRC performance, run:
 ```
@@ -147,3 +155,15 @@ python performance.py
 ```
 
 Results of the performance analysis are provided as 3D plot (```performance.gif```), with all PNG figures (frames) also available in ```benchmark_plot/``` folder.
+
+![CRC performance analysis](performance.gif)
+
+### GUI Application
+```gui.py``` provides a python program to enable interactive user input and CRC encoding/decoding. To start GUI app, run:
+```
+python gui.py
+```
+
+Results of the performance analysis are provided as 3D plot (```performance.gif```), with all PNG figures (frames) also available in ```benchmark_plot/``` folder.
+
+![CRC performance analysis](gui.png)
