@@ -30,8 +30,8 @@ def keyboard_function_decode(label, sequence, generator):
         decoded = crc_decode(seq, gen)
         label.set("DECODED!\n" + str(decoded))
     except Exception as e:
-        label.set("ERROR!")
-        logging.exception(e)
+        label.set("ERROR!\nInvalid input.")
+        # logging.exception(e)
 
 
 # Function to encode information sequence using CRC
@@ -53,8 +53,8 @@ def keyboard_function_encode(label, sequence, generator):
         encoded = crc_encode(seq, gen)
         label.set("ENCODED!\n" + str(bin(encoded)))
     except Exception as e:
-        label.set("ERROR!")
-        logging.exception(e)
+        label.set("ERROR!\nInvalid input.")
+        # logging.exception(e)
 
 
 # Function to update expression in the text entry box
@@ -62,8 +62,8 @@ def keyboard_function_press(textbox, num):
     try:
         textbox.set(textbox.get() + str(num))
     except Exception as e:
-        textbox.set("ERROR!")
-        logging.exception(e)
+        textbox.set("ERROR!\nInvalid input.")
+        # logging.exception(e)
 
 
 # Function to clear the contents of text entry box
@@ -71,8 +71,8 @@ def keyboard_function_delete(textbox):
     try:
         textbox.set(textbox.get()[:-1])
     except Exception as e:
-        textbox.set("ERROR!")
-        logging.exception(e)
+        textbox.set("ERROR!\nInvalid input.")
+        # logging.exception(e)
 
 
 # Function to clear the contents of text entry box
@@ -80,8 +80,8 @@ def keyboard_function_clear(textbox):
     try:
         textbox.set("")
     except Exception as e:
-        textbox.set("ERROR!")
-        logging.exception(e)
+        textbox.set("ERROR!\nInvalid input.")
+        # logging.exception(e)
 
 
 # Driver code
