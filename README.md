@@ -16,7 +16,7 @@ pip install crc_otr
 
 ### Usage
 
-`crc_decode(sequence, generator)` - Decodes a binary number (`sequence`) using the provided generator polynomial (`generator`), and returns a boolean value indicating whether there are errors in the original information sequence or not, based on the result of a cyclic redundancy check. If generator is not passed as an argument, CRC32 is used by default.
+`crc_decode(sequence, generator)` - Decodes a binary number using the provided generator polynomial, and returns a boolean value indicating whether there are errors in the original information sequence or not, based on the result of a cyclic redundancy check. If generator is not passed as an argument, CRC32 is used by default.
 ```
 >>> crc_decode(0b11011010000, 0b10101)
 False
@@ -26,7 +26,7 @@ True
 True
 ```
 
-`crc_encode(sequence, generator)` - Encodes a binary number (`sequence`) using the provided generator polynomial (`generator`), and returns the resulting (encoded) message. The original binary sequence is expanded (padding is added), and the appropriate suffix is added as a result of the cyclic redundancy check. If generator is not passed as an argument, CRC32 is used by default.
+`crc_encode(sequence, generator)` - Encodes a binary number using the provided generator polynomial, and returns the resulting (encoded) message. The original binary sequence is expanded (padding is added), and the appropriate suffix is added as a result of the cyclic redundancy check. If generator is not passed as an argument, CRC32 is used by default.
 ```
 >>> crc_encode(0b1101101, 0b10101)
 0b11011011011
@@ -39,17 +39,19 @@ True
 ## Cyclic Redundancy Check (CRC)
 
 ### Polynomial long division in GF(2)
-Payload (data block) - original information sequence:
+Payload (data block) - original information sequence:  
 i(x) = 1101101
-Generator polynomial - binary representation (reversed):
+
+Generator polynomial - binary representation (reversed):  
 g(x) = 10101
-GF(2) polynomial division remainder ```r(x) = i(x) % g(x)```:
+
+GF(2) polynomial division remainder ```r(x) = i(x) % g(x)```:  
 r(x) = **1011**
 
-For CRC, r(x) is used as a **check sequence** for given i(x) and g(x).
+For CRC, r(x) is used as a **check sequence** for given i(x) and g(x). Note: this package uses the "reversed" polynomial representation, as follows...
 
-Encoded information sequence (payload || check sequence):
-1101101**1011**
+Encoded information sequence (```i(x) || r(x)```):  
+e(x) = 1101101**1011**
 
 #### Example 1
 ```
