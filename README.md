@@ -11,7 +11,7 @@ This module provides users with cyclic redundancy check tooling under the `crc_o
 
 crc_otr can be installing using pip with:
 ```
-pip install crc_otr
+pip install git+https://github.com/urkeboy/cyclic-redundancy-check.git
 ```
 
 ### Usage
