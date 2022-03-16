@@ -25,7 +25,7 @@ Functions:
 """
 
 # Import libraries
-from helper import xor_operation, shl_operation, clear_bit
+from .helper import xor_operation, shl_operation, clear_bit
 
 
 # Function to perform cyclic redundancy check (CRC)
