@@ -75,7 +75,7 @@ def crc_check(sequence, generator):
 
 
 # Function to add padding to an information sequence
-def crc_padding(sequence, generator=0b100000100110000010001110110110111):
+def crc_padding(sequence, generator):
     """Adds padding (trailing zeros in the binary representation) to the
     given binary number (`sequence`) with length of the padding equal to
     1 less than the length of the generator polynomial (`generator`),
@@ -138,7 +138,7 @@ def crc_decode(sequence, generator=0b100000100110000010001110110110111):
 
 
 # Function to encode an information sequence
-def crc_encode(sequence, generator):
+def crc_encode(sequence, generator=0b100000100110000010001110110110111):
     """Encodes a binary number (`sequence`) using the provided generator
     polynomial (`generator`), and returns the resulting (encoded) message.
     The original binary sequence is expanded (padding is added), and the
