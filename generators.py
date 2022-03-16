@@ -7,7 +7,7 @@
 
 # Function to return a list of commonly used CRC generator polynomials
 def get_generators():
-    return [bin((x << 1) + 1) for x in list(generators_hex.keys())]
+    return [(bin((x << 1) + 1), generators_hex[x]) for x in list(generators_hex.keys())]
 
 
 # Source: https://en.wikipedia.org/wiki/Cyclic_redundancy_check

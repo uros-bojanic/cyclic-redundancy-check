@@ -62,7 +62,7 @@ def crc_check(sequence, generator):
 
     # Calculate remainder of encoded sequence division by the generator polynomial
     next_bit = sequence_length - generator_length - 1
-    temp = sequence >> next_bit + 1
+    temp = sequence >> next_bit + 1 if next_bit > 0 else sequence
     while next_bit >= 0:  # iterate over the entire encoded sequence
         temp = xor_operation(temp, generator_length - 1, generator)  # calculate XOR result in each iteration
         temp = shl_operation(temp, next_bit, sequence)  # use long-division method to find remainder
