@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # ----------------------------------------------------------------------------
 # Created By  : Uros Bojanic
-# Created Date: 2022/03/14
+# Created Date: 2022/03/15
 # ---------------------------------------------------------------------------
 
 # Python program to automatically test and assess the performance of CRC
