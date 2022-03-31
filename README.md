@@ -164,6 +164,6 @@ Results of the performance analysis are provided as 3D plot (```performance.gif`
 python gui.py
 ```
 
-A screenshot of the Tk GUI application upon launching on a Windows 11 machine is available in (```gui.png```).
+A screenshot of the Tk GUI application upon launching on a Windows 11 machine is available in ```gui.png```.
 
 ![CRC performance analysis](gui.png)
