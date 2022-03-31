@@ -164,6 +164,6 @@ Results of the performance analysis are provided as 3D plot (```performance.gif`
 python gui.py
 ```
 
-Results of the performance analysis are provided as 3D plot (```performance.gif```), with all PNG figures (frames) also available in ```benchmark_plot/``` folder.
+A screenshot of the Tk GUI application upon launching on a Windows 11 machine is available in (```gui.png```).
 
 ![CRC performance analysis](gui.png)
